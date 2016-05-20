@@ -45,15 +45,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SocialNetwork.cs" />
-    <Compile Include="KnowlegePattern.cs" />
+    <Compile Include="Class\InputGraph.cs" />
+    <Compile Include="Class\KnowlegePattern.cs" />
+    <Compile Include="Class\Program.cs" />
+    <Compile Include="Class\SocialNetwork.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="input_edge.txt" />
     <None Include="input_vertex.txt" />
+    <None Include="Input.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Class\" />
   </ItemGroup>
 </Project>

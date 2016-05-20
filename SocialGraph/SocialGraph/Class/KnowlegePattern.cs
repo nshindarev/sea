@@ -4,8 +4,9 @@ namespace SocialGraph
 {
 	public class KnowlegePattern
 	{
-		public KnowlegePattern ()
+		public KnowlegePattern (List<string> staff)
 		{
+			
 		}
 	}
 }
