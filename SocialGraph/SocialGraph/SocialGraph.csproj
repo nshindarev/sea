@@ -50,6 +50,7 @@
     <Compile Include="Class\KnowlegePattern.cs" />
     <Compile Include="Class\Program.cs" />
     <Compile Include="Class\SocialNetwork.cs" />
+    <Compile Include="Model.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

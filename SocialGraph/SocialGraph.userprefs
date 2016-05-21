@@ -1,11 +1,11 @@
 ﻿<Properties StartupItem="SocialGraph/SocialGraph.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="SocialGraph/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SocialGraph/Class/KnowlegePattern.cs">
     <Files>
-      <File FileName="SocialGraph/Program.cs" Line="17" Column="44" />
-      <File FileName="SocialGraph/SocialNetwork.cs" Line="9" Column="4" />
-      <File FileName="SocialGraph/KnowlegePattern.cs" Line="7" Column="20" />
-      <File FileName="SocialGraph/input_edge.txt" Line="2" Column="6" />
+      <File FileName="SocialGraph/Class/InputGraph.cs" Line="36" Column="5" />
+      <File FileName="SocialGraph/Class/Program.cs" Line="12" Column="4" />
+      <File FileName="SocialGraph/Class/SocialNetwork.cs" Line="9" Column="3" />
+      <File FileName="SocialGraph/Class/KnowlegePattern.cs" Line="7" Column="1" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

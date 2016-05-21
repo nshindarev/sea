@@ -4,8 +4,10 @@ namespace SocialGraph
 {
 	public class SocialNetwork
 	{
-		public SocialNetwork ()
-		{
+		// хранение исходного графа G
+		// связи между К.З.
+
+		public SocialNetwork (){
 		}
 	}
 }

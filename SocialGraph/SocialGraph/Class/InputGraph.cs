@@ -5,8 +5,7 @@ using System.Collections.Generic;
 
 namespace SocialGraph
 {
-	public class InputGraph
-	{
+	public class InputGraph {
 		// Граф + словари с весами вершин и ребер;
 		public AdjacencyGraph<string, Edge<string>> social_graph {get; set;}
 		public Dictionary<Edge<string>, double> edgeWeight { get; set;}
