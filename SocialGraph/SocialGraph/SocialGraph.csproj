@@ -50,13 +50,16 @@
     <Compile Include="Class\KnowlegePattern.cs" />
     <Compile Include="Class\Program.cs" />
     <Compile Include="Class\SocialNetwork.cs" />
-    <Compile Include="Model.cs" />
+    <Compile Include="Class\Model.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="input_vertex.txt" />
-    <None Include="Input.txt" />
+    <None Include="Input_3_users.txt" />
+    <None Include="Input_4_users.txt" />
+    <None Include="Input_6_users.txt" />
+    <None Include="Input_13_users.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Class\" />

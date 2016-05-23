@@ -45,30 +45,30 @@ namespace SocialGraph
 			Console.WriteLine("\n" + range[0]);
 			//   System.out.println("\n" + range[1]);
 		}
-		public static void get_sort_bynumber(int length, int number, List<string> chosen_staff) {
+		public static List<string> get_sort_bynumber(int number, List<string> chosen_staff) {
 
 			// для записи непосещенных
-			int[] numbersleft = new int[length];
+			int[] numbersleft = new int[chosen_staff.Count];
 			int k = 1;
-			for (int i = 0; i< length; i++) {
+			for (int i = 0; i< chosen_staff.Count; i++) {
 				numbersleft[i] = k;
 				k++;
 			}
 			//return
-			int[] sort = new int[length];
+			int[] sort = new int[chosen_staff.Count];
 
 			// для факториала
 			int fact_length;
-			int temp_length = length - 1; // 3!
+			int temp_length = chosen_staff.Count - 1; // 3!
 
 			// диапазон поиска, инициируем [0..23]
 			int[] range = new int[2];
 			range[0] = 0;
-			range[1] = Model.math_factorial(length)-1; //
+			range[1] = Model.math_factorial(chosen_staff.Count)-1; //
 
 			//для записи следующего значения
 			int counter;
-			for (int i = 0; i<length; i++){
+			for (int i = 0; i<chosen_staff.Count; i++){
 				fact_length = Model.math_factorial(temp_length);
 
 				int j = (number - range[0])/fact_length + 1;
@@ -101,9 +101,10 @@ namespace SocialGraph
 			List<string> output = new List<string> ();
 			for (int i = 0; i < sort.Length; i++) {
 				output.Add (chosen_staff [sort [i]-1]);
-				Console.Write (output [i]);
+				Console.Write (output [i] + " ");
 			}
 			Console.WriteLine ();
+			return output;
 			
 
 
@@ -207,7 +208,6 @@ namespace SocialGraph
 			}
 			return obrat(s);
 		}
-		//переворачивает число и возвращает прямую запись двоичного числа.
 		public static int obrat(List<int> norm)
 		{
 			int[] s= new int[norm.Count];
@@ -228,7 +228,7 @@ namespace SocialGraph
 		/// <param name="k">K.</param>
 		//C_nk
 		public static int C_nk (int n, int k){
-			return Model.math_factorial (n) / (Model.math_factorial (n) * Model.math_factorial (n - k));;
+			return Model.math_factorial (n) / (Model.math_factorial (k) * Model.math_factorial (n - k));;
 		}
 		// факториал от n
 		public static int math_factorial(int n){
@@ -254,8 +254,9 @@ namespace SocialGraph
 				i++;
 				binary_num /= 10;
 			}
-			foreach (string s in output)
-				Console.Write (s + " ");
+		   /* Для вывода выборки на консоль	
+		    * foreach (string s in output)
+				Console.Write (s + " ");  */
 			return output;
 		}
 	}

@@ -1,18 +1,22 @@
 ﻿<Properties StartupItem="SocialGraph/SocialGraph.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="SocialGraph/Class/InputGraph.cs">
-    <Files>
-      <File FileName="SocialGraph/Class/InputGraph.cs" Line="40" Column="46" />
-      <File FileName="SocialGraph/Class/KnowlegePattern.cs" Line="4" Column="1" />
-      <File FileName="SocialGraph/Model.cs" Line="260" Column="1" />
-      <File FileName="SocialGraph/Class/Program.cs" Line="10" Column="42" />
-      <File FileName="SocialGraph/Input.txt" Line="5" Column="14" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="SocialGraph" expanded="True">
+            <Node name="SocialGraph" expanded="True">
+              <Node name="Class" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="input_vertex.txt" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/nshindarev/Projects/SocialGraph/SocialGraph/Class/KnowlegePattern.cs" line="70" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

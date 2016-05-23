@@ -8,9 +8,8 @@ namespace SocialGraph
 	class MainClass
 	{
 		public static void Main (string[] args){
-			
-			InputGraph G = new InputGraph ("../../Input.txt");
 
+			//InputGraph G  = new InputGraph ("../../input_13_users.txt");
 			/*int fragmentlength = 12;
 			List<string> staff = new List<string> {
 				{ "user1" },
@@ -32,20 +31,32 @@ namespace SocialGraph
  			*/
 
 
-			List<string> vertex_list = new List<string> ();
+			/*List<string> vertex_list = new List<string> ();
 			foreach (string s in G.social_graph.Vertices)
 				vertex_list.Add (s);
-			KnowlegePattern KP = new KnowlegePattern (vertex_list, G, G.edgeWeight, G.vertexWeight);
-			KP.create_structure ();
-			for (int i = 0; i< KP.Data.Count; i++){
-				foreach (string key in KP.Data[i].Keys ){
-					string s = key.Remove (15);
-					/*Console.Write(s);
-					Console.WriteLine(); */
-				}
+			KnowlegePattern KP = new KnowlegePattern (vertex_list, G);
 
-			
+			List<double> probabilities = KP.get_attack("user_1", "user_3");*/
+
+		    List<string> urls = new List<string>() 
+			{
+				"../../Input_3_users.txt",
+				"../../Input_4_users.txt",
+				"../../Input_6_users.txt"
+			};
+
+			SocialNetwork SN = new SocialNetwork (new InputGraph ("../../Input_13_users.txt"), urls);
+
+			//проверка правильности списка отделов
+			for (int i = 0; i < SN.departments.Count; i++) {
+				foreach (string s in SN.departments[i])
+					Console.Write (s + " ");
+				Console.WriteLine ();
 			}
+
+			SN.get_attack ("user_9", "user_10");
+
+ 				
 		}
 	
 	}

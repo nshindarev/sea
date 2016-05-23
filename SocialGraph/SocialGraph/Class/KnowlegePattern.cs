@@ -16,14 +16,14 @@ namespace SocialGraph
 		/* для хранения перестановок: ярусы 1..staff.length
 		                              выборки 1..C_{staff.length}*/
 				
-		public KnowlegePattern (List<string> staff, InputGraph G, Dictionary<Edge<string>, double> edgeWeight, Dictionary<string, double> vertexWeight){
+		public KnowlegePattern (List<string> staff, InputGraph G){
+			this.staff = new List<string> ();
 			this.G = G;
+
 			foreach ( string s in staff ) this.staff.Add(s);
-			for (int i = 0; i < vertexWeight.Count; i++) {
-				
-			}
-			this.vertexWeight = vertexWeight;
+			this.vertexWeight = G.vertexWeight;
 			this.edgeWeight = edgeWeight;
+			this.create_structure ();
 		}
 		public void create_structure(){
 			
@@ -58,7 +58,7 @@ namespace SocialGraph
 			}
 			*/
 			int fragmentlength = 0;
-			for (int i = 1; i < staff.Count; i++)
+			for (int i = 1; i <= staff.Count; i++)
 				fragmentlength += Model.C_nk (staff.Count, i);
 	
 
@@ -67,13 +67,17 @@ namespace SocialGraph
 			// 2) Для выборки генерируем cловарь перестановок. p["start finish"] = ... (см. Java)
 			// TODO: надо расширить функционал Java кода с цифр на пользователей И.С. 
 			this.Data = new List<Dictionary<string, double>> (fragmentlength);
-			for (int i = 1; i < fragmentlength; i++) {
+
+			for (int i = 1; i <= fragmentlength; i++) {
 				List<string> choose_at_number = Model.generate_selection (i, staff);
 				Dictionary<string,double> permutation_list = new Dictionary<string,double> (Model.math_factorial(choose_at_number.Count));
 				for (int j = 0; j < Model.math_factorial(choose_at_number.Count); j++) {
+
+					//[user1, user5,...] 
 					List<string> cur_permutation = Model.get_sort_bynumber (j, choose_at_number);
+					// бежим по элементам текущей перестановки
+					double probability = 0;
 					for (int k = 0; k < cur_permutation.Count; k++) {
-						double probability = 0;
 						// стартовая вершина
 						if (k == 0)
 							probability = vertexWeight [cur_permutation [k]];
@@ -82,12 +86,15 @@ namespace SocialGraph
 							Edge<string> e;
 							string start = cur_permutation [k - 1];
 							string finish = cur_permutation [k];
-							if (G.social_graph.TryGetEdge (start, finish,out e))
+							if (G.social_graph.TryGetEdge (start, finish, out e))
 								probability *= G.edgeWeight [e];
 						}
-						string st_fin = cur_permutation [0] + "__" + cur_permutation [cur_permutation.Count - 1] + "__" + k.ToString();
-						permutation_list.Add (st_fin, probability);
-					}
+					}	
+					string st_fin = cur_permutation [0] + " " + cur_permutation [cur_permutation.Count - 1]
+							+ " " + i.ToString() + " " + j.ToString();
+
+					permutation_list.Add (st_fin, probability);
+					
 				}
 				Data.Add (permutation_list);
 			}
@@ -95,6 +102,40 @@ namespace SocialGraph
 		/*public string[] getusersbynumber (int num){ return 0;
 			// переводим число в двоичную систему счисления
 		}*/
+		public List<double> get_attack (string start, string finish){
+			List<double> output = new List<double> ();
+			string s = start + " " + finish;
+			for (int i = 0; i < Data.Count; i++) {
 				
+				foreach (string key in Data[i].Keys) {
+					String[] keys = key.Split (' ');
+					double probability;
+					if ((keys[0] == start) && (keys[1] == finish)&&(Data[i].TryGetValue(key, out probability))){
+						output.Add (probability);
+						Console.Write (probability + "  ");
+					}
+				}
+					
+			}
+			return output;
+		}			
+		public List<double> get_attack (string start, string finish, double resize_value){
+			List<double> output = new List<double> ();
+			string s = start + " " + finish;
+			for (int i = 0; i < Data.Count; i++) {
+
+				foreach (string key in Data[i].Keys) {
+					String[] keys = key.Split (' ');
+					double probability;
+					if (i == 0) 
+					if ((keys[0] == start) && (keys[1] == finish)&&(Data[i].TryGetValue(key, out probability))){
+						output.Add (probability);
+						Console.Write (probability + "  ");
+					}
+				}
+
+			}
+			return output;
+		}
 	}
 }
